@@ -1,1 +1,1 @@
-flipkart ecommerce application (mern stack)
+flipkart ecommerce application (mern stack development)
