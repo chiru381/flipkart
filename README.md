@@ -10,3 +10,4 @@ Ecommerce Application (Mern Stack Development)
 7.Product and Rating Component.
 8.product details screen and then fetch product from backend.react-helmet-async package installed.
 9.Loading and MessageBox components created.
+10.implement add to cart functionality and screen.and then check count in stock in backend. and then localstorage saving items.
