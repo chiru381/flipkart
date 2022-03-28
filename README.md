@@ -6,3 +6,4 @@ Ecommerce Application (Mern Stack Development)
 2.useParams using in react-router-dom.opened product details page.
 3.backend install packages nodemon and express.and then created product list api.
 4.fetch products from backend api.In frontend using axios, useState, useEffect.
+5.manage state by reducer hook.use-reducer-logger package used for logger.and then loading, error, products using useReducer.
