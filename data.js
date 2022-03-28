@@ -1,7 +1,23 @@
+const bcrypt = require("bcryptjs");
+
 const data = {
+  users: [
+    {
+      name: "Chiru",
+      email: "admin@example.com",
+      password: bcrypt.hashSync("123456"),
+      isAdmin: true,
+    },
+    {
+      name: "Nandu",
+      email: "user@example.com",
+      password: bcrypt.hashSync("123456"),
+      isAdmin: false,
+    },
+  ],
   products: [
     {
-      _id: "1",
+      // _id: "1",
       name: "Nike Slim shirt",
       slug: "nike-slim-shirt",
       category: "Shirts",
@@ -14,7 +30,7 @@ const data = {
       description: "high quality shirt",
     },
     {
-      _id: "2",
+      // _id: "2",
       name: "Adidas Fit Shirt",
       slug: "adidas-fit-shirt",
       category: "Shirts",
@@ -27,7 +43,7 @@ const data = {
       description: "high quality product",
     },
     {
-      _id: "3",
+      // _id: "3",
       name: "Nike Slim Pant",
       slug: "nike-slim-pant",
       category: "Pants",
@@ -40,7 +56,7 @@ const data = {
       description: "high quality product",
     },
     {
-      _id: "4",
+      // _id: "4",
       name: "Adidas Fit Pant",
       slug: "adidas-fit-pant",
       category: "Pants",
@@ -54,7 +70,7 @@ const data = {
     },
 
     {
-      _id: "5",
+      // _id: "5",
       name: "Watch Rolex",
       slug: "watch-rolex",
       category: "watches",
@@ -67,7 +83,7 @@ const data = {
       description: "high quality watch",
     },
     {
-      _id: "6",
+      // _id: "6",
       name: "Watch Brand",
       slug: "watch-brand",
       category: "watches",
@@ -80,7 +96,7 @@ const data = {
       description: "high quality brand",
     },
     {
-      _id: "7",
+      // _id: "7",
       name: "HP15",
       slug: "hp15",
       category: "laptops",
@@ -93,7 +109,7 @@ const data = {
       description: "high quality laptop",
     },
     {
-      _id: "8",
+      // _id: "8",
       name: "Lenovo Thinkpad",
       slug: "lenovo-thinkpad",
       category: "laptops",
