@@ -15,3 +15,6 @@ Ecommerce Application (Mern Stack Development)
 12.shipping and checkout pages.localstorage removed in shipping as a signout time.
 13.Signup screen and backend api created.
 14.payment method paypal or stripe.
+15.create place order screen.
+16.implement order screen.
+17.pay order by paypal.
