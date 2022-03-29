@@ -14,3 +14,4 @@ Ecommerce Application (Mern Stack Development)
 11.create signin screen.connect to database.installing packages.and then localstorage signin token stored.
 12.shipping and checkout pages.localstorage removed in shipping as a signout time.
 13.Signup screen and backend api created.
+14.payment method paypal or stripe.
