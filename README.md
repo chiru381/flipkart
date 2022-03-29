@@ -13,3 +13,4 @@ Ecommerce Application (Mern Stack Development)
 10.implement add to cart functionality and screen.and then check count in stock in backend. and then localstorage saving items.
 11.create signin screen.connect to database.installing packages.and then localstorage signin token stored.
 12.shipping and checkout pages.localstorage removed in shipping as a signout time.
+13.Signup screen and backend api created.
