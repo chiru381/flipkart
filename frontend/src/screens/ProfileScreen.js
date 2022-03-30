@@ -1,4 +1,4 @@
-import React, { useContext, useReducer, useState } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -7,18 +7,18 @@ import { Store } from "../Store";
 import { toast } from "react-toastify";
 import { getError } from "../utils";
 
-const reducer = (state, action) => {
-  switch (action.type) {
-    case "UPDATE_REQUEST":
-      return { ...state, loadingUpdate: true };
-    case "UPDATE_SUCCESS":
-      return { ...state, loadingUpdate: false };
-    case "UPDATE_FAIL":
-      return { ...state, loadingUpdate: false };
-    default:
-      return state;
-  }
-};
+// const reducer = (state, action) => {
+//   switch (action.type) {
+//     case "UPDATE_REQUEST":
+//       return { ...state, loadingUpdate: true };
+//     case "UPDATE_SUCCESS":
+//       return { ...state, loadingUpdate: false };
+//     case "UPDATE_FAIL":
+//       return { ...state, loadingUpdate: false };
+//     default:
+//       return state;
+//   }
+// };
 
 export default function ProfileScreen() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -26,11 +26,11 @@ export default function ProfileScreen() {
   const [name, setName] = useState(userInfo.name);
   const [email, setEmail] = useState(userInfo.email);
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  // const [confirmPassword, setConfirmPassword] = useState("");
 
-  const [{ loadingUpdate }, dispatch] = useReducer(reducer, {
-    loadingUpdate: false,
-  });
+  // const [{ loadingUpdate }, dispatch] = useReducer(reducer, {
+  //   loadingUpdate: false,
+  // });
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -42,12 +42,12 @@ export default function ProfileScreen() {
           headers: { Authorization: `Bearer ${userInfo.token}` },
         }
       );
-      dispatch({ type: "UPDATE_SUCCESS" });
+      // dispatch({ type: "UPDATE_SUCCESS" });
       ctxDispatch({ type: "USER_SIGNIN", payload: data });
       localStorage.setItem("userInfo", JSON.stringify(data));
       toast.success("User Updated Successfully");
     } catch (err) {
-      dispatch({ type: "FETCH_FAIL" });
+      // dispatch({ type: "FETCH_FAIL" });
       toast.error(getError(err));
     }
   };
@@ -85,7 +85,7 @@ export default function ProfileScreen() {
           <Form.Label>Confirm Password</Form.Label>
           <Form.Control
             type="password"
-            onChange={(e) => setConfirmPassword(e.target.value)}
+            // onChange={(e) => setConfirmPassword(e.target.value)}
           ></Form.Control>
         </Form.Group>
         <div className="mb-3">
