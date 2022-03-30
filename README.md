@@ -19,3 +19,4 @@ Ecommerce Application (Mern Stack Development)
 16.implement order screen.
 17.pay order by paypal.
 18.order history details.and then api created.
+19.user profile screen updated.after signout redirected to signin page.
