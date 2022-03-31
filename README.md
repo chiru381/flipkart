@@ -21,3 +21,4 @@ Ecommerce Application (Mern Stack Development)
 18.order history details.and then api created.
 19.user profile screen updated.after signout redirected to signin page.
 20.publish to heroku...
+21.create sidebar and searchbox.
