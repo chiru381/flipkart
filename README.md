@@ -22,3 +22,4 @@ Ecommerce Application (Mern Stack Development)
 19.user profile screen updated.after signout redirected to signin page.
 20.publish to heroku...
 21.create sidebar and searchbox.
+22.create search and filter.
