@@ -27,3 +27,4 @@ Ecommerce Application (Mern Stack Development)
 24.create dashboard screen. and then charts created.
 25.manage products. and then create pagination.
 26.create new product screen. and backend api created.
+27.update product frontend and backend implemented.
