@@ -7,6 +7,7 @@ const seedRouter = require("./routes/seedRoutes");
 const productRouter = require("./routes/productRoutes");
 const userRouter = require("./routes/userRoutes");
 const orderRouter = require("./routes/orderRoutes");
+const uploadRouter = require("./routes/uploadRoutes");
 
 dotenv.config();
 
@@ -28,6 +29,7 @@ app.get("/api/keys/paypal", (req, res) => {
   res.send(process.env.PAYPAL_CLIENT_ID || "sb");
 });
 
+app.use("/api/upload", uploadRouter);
 app.use("/api/seed", seedRouter);
 app.use("/api/products", productRouter);
 app.use("/api/users", userRouter);

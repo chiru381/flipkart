@@ -20,11 +20,11 @@ const reducer = (state, action) => {
     case "FETCH_FAIL":
       return { ...state, loading: false, error: action.payload };
     case "UPDATE_REQUEST":
-      return { ...state, loadingUpdate: true };
+      return { ...state, loadingUpload: true, errorUpload: "" };
     case "UPDATE_SUCCESS":
-      return { ...state, loadingUpdate: false };
+      return { ...state, loadingUpload: false, errorUpload: "" };
     case "UPDATE_FAIL":
-      return { ...state, loadingUpdate: false };
+      return { ...state, loadingUpload: false, errorUpload: action.payload };
     default:
       return state;
   }
@@ -34,10 +34,11 @@ export default function ProductEditScreen() {
   const navigate = useNavigate();
   const params = useParams(); // /product/:id
   const { id: productId } = params;
-  const [{ loading, error, loadingUpdate }, dispatch] = useReducer(reducer, {
-    loading: true,
-    error: "",
-  });
+  const [{ loading, error, loadingUpdate, loadingUpload }, dispatch] =
+    useReducer(reducer, {
+      loading: true,
+      error: "",
+    });
 
   const [name, setName] = useState("");
   const [slug, setSlug] = useState("");
@@ -101,6 +102,27 @@ export default function ProductEditScreen() {
       dispatch({ type: "UPDATE_FAIL" });
     }
   };
+
+  const uploadFileHandler = async (e) => {
+    const file = e.target.files[0];
+    const bodyFormData = new FormData();
+    bodyFormData.append("file", file);
+    try {
+      dispatch({ type: "UPLOAD_REQUEST" });
+      const { data } = await axios.post("/api/upload", bodyFormData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          authorization: `Bearer ${userInfo.token}`,
+        },
+      });
+      dispatch({ type: "UPLOAD_SUCCESS" });
+      toast.success("Image Uploaded Successfully");
+      setImage(data.secure_url);
+    } catch (err) {
+      toast.error(getError(err));
+      dispatch({ type: "UPLOAD_FAIL", payload: getError(err) });
+    }
+  };
   return (
     <Container className="small-container">
       <Helmet>
@@ -146,6 +168,11 @@ export default function ProductEditScreen() {
                 onChange={(e) => setImage(e.target.value)}
                 required
               />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="imageFile">
+              <Form.Label>Upload File</Form.Label>
+              <Form.Control type="file" onChange={uploadFileHandler} />
+              {loadingUpload && <LoadingBox></LoadingBox>}
             </Form.Group>
             <Form.Group className="mb-3" controlId="name">
               <Form.Label>Category</Form.Label>

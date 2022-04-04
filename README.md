@@ -28,3 +28,4 @@ Ecommerce Application (Mern Stack Development)
 25.manage products. and then create pagination.
 26.create new product screen. and backend api created.
 27.update product frontend and backend implemented.
+28.upload image using cloudinary.and then using packages multer, streamfier, cloudinary.
