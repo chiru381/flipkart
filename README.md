@@ -30,3 +30,4 @@ Ecommerce Application (Mern Stack Development)
 27.update product frontend and backend implemented.
 28.upload image using cloudinary.and then using packages multer, streamfier, cloudinary.
 29.delete product frontend screen created. and backend api created.
+30.orders list show in frontend. and then created and populate method using in backend.
