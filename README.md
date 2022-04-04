@@ -25,3 +25,4 @@ Ecommerce Application (Mern Stack Development)
 22.create search and filter.
 23.create admin view. and then only access admins.
 24.create dashboard screen. and then charts created.
+25.manage products. and then create pagination.
