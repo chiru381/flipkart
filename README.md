@@ -34,3 +34,4 @@ Ecommerce Application (Mern Stack Development)
 31.after paid amount order is delivered.and then if paid amount shows for delivered button.
 32.order list inside order deleted implemented.
 33.user list created frontend. and then backend api created.
+34.user update is not working perfectly. and then user deleted.
