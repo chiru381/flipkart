@@ -35,3 +35,4 @@ Ecommerce Application (Mern Stack Development)
 32.order list inside order deleted implemented.
 33.user list created frontend. and then backend api created.
 34.user update is not working perfectly. and then user deleted.
+35.create google map credentials. and then using @react-google-maps/api package. and then console.cloud.google.com inside credentials and api created.
