@@ -4,8 +4,19 @@ const expressAsyncHandler = require("express-async-handler");
 const User = require("../models/userModel");
 const generateToken = require("../utils");
 const isAuth = require("../utilsauth");
+const isAdmin = require("../utilsadmin");
 
 const userRouter = express.Router();
+
+userRouter.get(
+  "/",
+  isAuth,
+  isAdmin,
+  expressAsyncHandler(async (req, res) => {
+    const users = await User.find({});
+    res.send(users);
+  })
+);
 
 userRouter.post(
   "/signin",

@@ -33,3 +33,4 @@ Ecommerce Application (Mern Stack Development)
 30.orders list show in frontend. and then created and populate method using in backend.
 31.after paid amount order is delivered.and then if paid amount shows for delivered button.
 32.order list inside order deleted implemented.
+33.user list created frontend. and then backend api created.
