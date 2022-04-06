@@ -39,3 +39,4 @@ Ecommerce Application (Mern Stack Development)
 36.create mailgun account.but it is not working.
 37.Rate and Review product. but it is not working.
 38.add images in product.but product details page is not working.
+39.create seller.(section - 14. multivendors)

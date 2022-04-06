@@ -5,6 +5,7 @@ const User = require("../models/userModel");
 const Product = require("../models/productModel");
 const isAuth = require("../utilsauth");
 const isAdmin = require("../utilsadmin");
+const isSellerOrAdmin = require("../utilsisSellerOrAdmin");
 const mailgun = require("../utilsmailgun");
 const payOrderEmailTemplate = require("../utilspayOrderEmailTemplate");
 
@@ -13,9 +14,15 @@ const orderRouter = express.Router();
 orderRouter.get(
   "/",
   isAuth,
-  isAdmin,
+  isSellerOrAdmin,
   expressAsyncHandler(async (req, res) => {
-    const orders = await Order.find().populate("user", "name");
+    const seller = req.query.seller || "";
+    const sellerFilter = seller ? { seller } : {};
+
+    const orders = await Order.find({ ...sellerFilter }).populate(
+      "user",
+      "name"
+    );
     res.send(orders);
   })
 );
@@ -25,6 +32,7 @@ orderRouter.post(
   isAuth,
   expressAsyncHandler(async (req, res) => {
     const newOrder = new Order({
+      seller: req.body.orderItems[0].seller,
       orderItems: req.body.orderItems.map((x) => ({ ...x, product: x._id })),
       shippingAddress: req.body.shippingAddress,
       paymentMethod: req.body.paymentMethod,

@@ -3,21 +3,25 @@ const expressAsyncHandler = require("express-async-handler");
 const Product = require("../models/productModel");
 const isAuth = require("../utilsauth");
 const isAdmin = require("../utilsadmin");
+const isSellerOrAdmin = require("../utilsisSellerOrAdmin");
 
 const productRouter = express.Router();
 
 productRouter.get("/", async (req, res) => {
-  const products = await Product.find();
+  const seller = req.query.seller || "";
+  const sellerFilter = seller ? { seller } : {};
+  const products = await Product.find({ ...sellerFilter });
   res.send(products);
 });
 
 productRouter.post(
   "/",
   isAuth,
-  isAdmin,
+  isSellerOrAdmin,
   expressAsyncHandler(async (req, res) => {
     const newProduct = new Product({
       name: "Sampel Name" + Date.now(),
+      seller: req.user._id,
       slug: "sample name" + Date.now(),
       image: "/images/laptop1.jpeg",
       price: "50000",
@@ -36,7 +40,7 @@ productRouter.post(
 productRouter.put(
   "/:id",
   isAuth,
-  isAdmin,
+  isSellerOrAdmin,
   expressAsyncHandler(async (req, res) => {
     const productId = req.params.id;
     const product = await Product.findById(productId);
