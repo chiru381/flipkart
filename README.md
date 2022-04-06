@@ -38,3 +38,4 @@ Ecommerce Application (Mern Stack Development)
 35.create google map credentials. and then using @react-google-maps/api package. and then console.cloud.google.com inside credentials and api created.
 36.create mailgun account.but it is not working.
 37.Rate and Review product. but it is not working.
+38.add images in product.but product details page is not working.
