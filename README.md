@@ -41,3 +41,4 @@ Ecommerce Application (Mern Stack Development)
 38.add images in product.but product details page is not working.
 39.create seller.(section - 14. multivendors)
 40.section - 17 inside upload product images on aws s3 is pending.and then section - 18 total live chat is pending..................
+41.chat app is not working.

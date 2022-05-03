@@ -35,6 +35,8 @@ import OrderListScreen from "./screens/OrderListScreen";
 import UserListScreen from "./screens/UserListScreen";
 import UserEditScreen from "./screens/UserEditScreen";
 import MapScreen from "./screens/MapScreen";
+import SupportScreen from "./screens/SupportScreen";
+import ChatBox from "./components/ChatBox";
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -135,6 +137,9 @@ function App() {
                       <LinkContainer to="/admin/users">
                         <NavDropdown.Item>Users</NavDropdown.Item>
                       </LinkContainer>
+                      <LinkContainer to="/admin/support">
+                        <NavDropdown.Item>Support</NavDropdown.Item>
+                      </LinkContainer>
                     </NavDropdown>
                   )}
                 </Nav>
@@ -222,6 +227,14 @@ function App() {
                 }
               />
               <Route
+                path="/admin/support"
+                element={
+                  <AdminRoute>
+                    <SupportScreen />
+                  </AdminRoute>
+                }
+              />
+              <Route
                 path="/admin/products"
                 element={
                   <AdminRoute>
@@ -265,8 +278,9 @@ function App() {
             </Routes>
           </Container>
         </main>
-        <footer>
-          <div className="text-center">All rights reserved</div>
+        <footer className="row center">
+          {userInfo && !userInfo.isAdmin && <ChatBox userInfo={userInfo} />}
+          <div>All right reserved</div>
         </footer>
       </div>
     </BrowserRouter>

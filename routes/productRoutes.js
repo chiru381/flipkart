@@ -7,6 +7,7 @@ const isSellerOrAdmin = require("../utilsisSellerOrAdmin");
 
 const productRouter = express.Router();
 
+//get all products
 productRouter.get("/", async (req, res) => {
   const seller = req.query.seller || "";
   const sellerFilter = seller ? { seller } : {};
@@ -14,6 +15,7 @@ productRouter.get("/", async (req, res) => {
   res.send(products);
 });
 
+//create product
 productRouter.post(
   "/",
   isAuth,
@@ -37,6 +39,7 @@ productRouter.post(
   })
 );
 
+//update product
 productRouter.put(
   "/:id",
   isAuth,
@@ -62,6 +65,7 @@ productRouter.put(
   })
 );
 
+//delete product
 productRouter.delete(
   "/:id",
   isAuth,
@@ -115,6 +119,7 @@ productRouter.post(
 
 const PAGE_SIZE = 3;
 
+//count product, page, pages, pagesize
 productRouter.get(
   "/admin",
   isAuth,
@@ -137,6 +142,7 @@ productRouter.get(
   })
 );
 
+//search, ... count product, page, pages, pagesize
 productRouter.get(
   "/search",
   expressAsyncHandler(async (req, res) => {
@@ -215,6 +221,7 @@ productRouter.get(
   })
 );
 
+//product categories
 productRouter.get(
   "/categories",
   expressAsyncHandler(async (req, res) => {
@@ -231,6 +238,8 @@ productRouter.get("/slug/:slug", async (req, res) => {
     res.status(404).send({ message: "Product Not Found" });
   }
 });
+
+//particular product id details
 productRouter.get("/:id", async (req, res) => {
   const product = await Product.findById(req.params.id);
   if (product) {

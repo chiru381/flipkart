@@ -11,6 +11,7 @@ const payOrderEmailTemplate = require("../utilspayOrderEmailTemplate");
 
 const orderRouter = express.Router();
 
+//get all orders
 orderRouter.get(
   "/",
   isAuth,
@@ -48,6 +49,7 @@ orderRouter.post(
   })
 );
 
+//users, orders, dailyOrders, productCategories details...
 orderRouter.get(
   "/summery",
   isAuth,
@@ -101,6 +103,7 @@ orderRouter.get(
   })
 );
 
+//particular order id details
 orderRouter.get(
   "/:id",
   isAuth,

@@ -8,6 +8,7 @@ const isAdmin = require("../utilsadmin");
 
 const userRouter = express.Router();
 
+//get all users
 userRouter.get(
   "/",
   isAuth,
@@ -18,6 +19,7 @@ userRouter.get(
   })
 );
 
+//particular user id details
 userRouter.get(
   "/:id",
   isAuth,
@@ -36,6 +38,7 @@ userRouter.get(
   })
 );
 
+//delete particular user id
 userRouter.delete(
   "/:id",
   isAuth,
@@ -53,6 +56,7 @@ userRouter.delete(
   })
 );
 
+//signin
 userRouter.post(
   "/signin",
   expressAsyncHandler(async (req, res) => {
@@ -74,6 +78,7 @@ userRouter.post(
   })
 );
 
+//signup
 userRouter.post(
   "/signup",
   expressAsyncHandler(async (req, res) => {
@@ -94,6 +99,7 @@ userRouter.post(
   })
 );
 
+//......update user profile
 userRouter.put(
   "/profile",
   isAuth,
