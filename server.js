@@ -35,7 +35,9 @@ app.get("/api/keys/google", (req, res) => {
   res.send(process.env.GOOGLE_API_KEY || "");
 });
 
-app.use("/api/upload", uploadRouter);
+app.use("/api/upload", (req, res) => {
+  uploadRouter;
+});
 app.use("/api/seed", seedRouter);
 app.use("/api/products", productRouter);
 app.use("/api/users", userRouter);
