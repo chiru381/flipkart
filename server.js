@@ -14,7 +14,7 @@ const uploadRouter = require("./routes/uploadRoutes");
 dotenv.config();
 
 mongoose
-  .connect(process.env.DB)
+  .connect(process.env.DB_CLOUD)
   .then(() => {
     console.log("connected to db");
   })
